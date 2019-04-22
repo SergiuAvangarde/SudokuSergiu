@@ -5,11 +5,9 @@ using UnityEngine;
 public class SudokuManager : MonoBehaviour
 {
 
-    //private int[,] currentTable = new int[9, 9];
-
     public bool ValidatePosition(int[,] currentTable, int number, int row, int col)
     {
-        for (int i = 0; i < col; i++)
+        for (int i = 0; i < currentTable.GetLength(1); i++)
         {
             if (currentTable[row, i] == number)
             {
@@ -17,7 +15,7 @@ public class SudokuManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < row; i++)
+        for (int i = 0; i < currentTable.GetLength(0); i++)
         {
             if (currentTable[i, col] == number)
             {
