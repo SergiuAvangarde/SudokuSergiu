@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SudokuTable : MonoBehaviour
+public class SudokuTable
 {
     public int[,] SudokuGrid = new int[9,9];
     public int[] SudokuArray = new int[80];
-
 }
