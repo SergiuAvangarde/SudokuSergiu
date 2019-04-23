@@ -7,6 +7,11 @@ public class SudokuManager : MonoBehaviour
 
     public bool ValidatePosition(int[,] currentTable, int number, int row, int col)
     {
+        if (currentTable[row,col] != 0)
+        {
+            return false;
+        }
+
         for (int i = 0; i < currentTable.GetLength(1); i++)
         {
             if (currentTable[row, i] == number)
