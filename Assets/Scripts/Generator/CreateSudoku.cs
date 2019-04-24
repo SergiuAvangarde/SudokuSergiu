@@ -5,41 +5,40 @@ using UnityEngine.UI;
 
 public class CreateSudoku : MonoBehaviour
 {
-    public SudokuTable NewTable = new SudokuTable();
-    public SudokuManager SudokuRulles;
-
+    private SudokuTable newTable = new SudokuTable();
     [SerializeField]
-    private Text[] NumbersUI;
+    private GameManager Manager;
 
     public void Start()
     {
         RefreshGrid();
-        PopulateGrid(NewTable.SudokuGrid, 0, 0);
+        PopulateGrid(newTable.SudokuGrid, 0, 0);
         RandomDelete();
     }
 
     public void CreateNewTable()
     {
         RefreshGrid();
-        PopulateGrid(NewTable.SudokuGrid, 0, 0);
+        PopulateGrid(newTable.SudokuGrid, 0, 0);
         RandomDelete();
     }
 
     private void RandomDelete()
     {
         int count = 81;
-        while (count > 15)
+        while (count > 17)
         {
             int row = Random.Range(0, 9);
             int col = Random.Range(0, 9);
 
-            if (NewTable.SudokuGrid[row, col] != 0)
+            if (newTable.SudokuGrid[row, col] != 0)
             {
-                NewTable.SudokuGrid[row, col] = 0;
+                newTable.SudokuGrid[row, col] = 0;
                 count--;
             }
         }
-        PrintResult();
+        Manager.UIManagerComponent.PrintResult(newTable.SudokuGrid);
+        Manager.CurrentTable = newTable;
     }
 
     private bool PopulateGrid(int[,] Sudoku, int row, int col)
@@ -60,7 +59,7 @@ public class CreateSudoku : MonoBehaviour
         for (int i = 0; i < randomNum.Count; i++)
         {
             int value = randomNum[i];
-            if (SudokuRulles.ValidatePosition(Sudoku, value, row, col))
+            if (Manager.SudokuManagerComponent.ValidatePosition(Sudoku, value, row, col))
             {
                 Sudoku[row, col] = value;
                 if (PopulateGrid(Sudoku, row, col + 1))
@@ -93,31 +92,11 @@ public class CreateSudoku : MonoBehaviour
 
     private void RefreshGrid()
     {
-        for (int i = 0; i < NewTable.SudokuGrid.GetLength(0); i++)
+        for (int i = 0; i < newTable.SudokuGrid.GetLength(0); i++)
         {
-            for (int j = 0; j < NewTable.SudokuGrid.GetLength(1); j++)
+            for (int j = 0; j < newTable.SudokuGrid.GetLength(1); j++)
             {
-                NewTable.SudokuGrid[i, j] = 0;
-            }
-        }
-    }
-
-    private void PrintResult()
-    {
-        int k = 0;
-        for (int i = 0; i < NewTable.SudokuGrid.GetLength(0); i++)
-        {
-            for (int j = 0; j < NewTable.SudokuGrid.GetLength(1); j++)
-            {
-                if (NewTable.SudokuGrid[i, j] == 0)
-                {
-                    NumbersUI[k].text = "";
-                }
-                else
-                {
-                    NumbersUI[k].text = NewTable.SudokuGrid[i, j].ToString();
-                }
-                k++;
+                newTable.SudokuGrid[i, j] = 0;
             }
         }
     }

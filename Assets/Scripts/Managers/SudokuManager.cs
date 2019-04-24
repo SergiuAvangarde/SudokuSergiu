@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SudokuManager : MonoBehaviour
 {
-
     public bool ValidatePosition(int[,] currentTable, int number, int row, int col)
     {
         if (currentTable[row,col] != 0)
@@ -40,5 +39,33 @@ public class SudokuManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public int[] ConvertToArray(int[,] grid)
+    {
+        int[] array = new int[81];
+        int index = 0;
+        foreach(int number in grid)
+        {
+            array[index] = number;
+            index++;
+        }
+        return array;
+    }
+
+    public int[,] ConvertToGrid(int[] array)
+    {
+        int[,] grid = new int[9,9];
+        int index = 0;
+
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                grid[i, j] = array[index];
+                index++;
+            }
+        }
+        return grid;
     }
 }

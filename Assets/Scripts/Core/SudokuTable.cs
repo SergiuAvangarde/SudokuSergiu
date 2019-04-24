@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class SudokuTable
 {
+    public int[] SudokuArray = new int[81];
     public int[,] SudokuGrid = new int[9,9];
-    public int[] SudokuArray = new int[80];
 }
