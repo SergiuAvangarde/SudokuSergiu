@@ -16,7 +16,7 @@ public class FileManager : MonoBehaviour
         {
             contents += number.ToString() + ',';
         }
-        File.AppendAllText(filePath, contents + Environment.NewLine);
+        File.AppendAllText(filePath, Environment.NewLine + contents);
     }
 
     public static List<SudokuTable> LoadFromFile()
