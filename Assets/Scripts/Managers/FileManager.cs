@@ -39,16 +39,19 @@ public class FileManager : MonoBehaviour
 
             foreach (string item in tables)
             {
-                string[] sudokuNumbers = item.Split(',');
-                sudokuArray = new int[81];
-                for (int i = 0; i < 81; i++)
+                if (!string.IsNullOrEmpty(item))
                 {
-                    sudokuArray[i] = int.Parse(sudokuNumbers[i]);
-                }
+                    string[] sudokuNumbers = item.Split(',');
+                    sudokuArray = new int[81];
+                    for (int i = 0; i < 81; i++)
+                    {
+                        sudokuArray[i] = int.Parse(sudokuNumbers[i]);
+                    }
 
-                SudokuTable newTable = new SudokuTable();
-                newTable.SudokuArray = sudokuArray;
-                sudokuTables.Add(newTable);
+                    SudokuTable newTable = new SudokuTable();
+                    newTable.SudokuArray = sudokuArray;
+                    sudokuTables.Add(newTable);
+                }
             }
         }
         else
