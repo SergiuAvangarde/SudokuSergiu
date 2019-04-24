@@ -12,11 +12,20 @@ public class FileManager : MonoBehaviour
     {
         string filePath = Path.Combine(Application.persistentDataPath, SudokuList);
         string contents = null;
-        foreach (var number in sudoku)
+        if (File.Exists(filePath))
         {
-            contents += number.ToString() + ',';
+            foreach (var number in sudoku)
+            {
+                contents += number.ToString() + ',';
+            }
+            File.AppendAllText(filePath, Environment.NewLine + contents);
         }
-        File.AppendAllText(filePath, Environment.NewLine + contents);
+        else
+        {
+            var textFile = Resources.Load<TextAsset>("SudokuList");
+            File.AppendAllText(filePath, textFile.ToString());
+            SaveToFile(sudoku);
+        }
     }
 
     public static List<SudokuTable> LoadFromFile()
