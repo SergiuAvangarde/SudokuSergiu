@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CreateSudoku : MonoBehaviour
+public class CreateSudoku : SudokuManager
 {
     private SudokuTable newTable = new SudokuTable();
     [SerializeField]
@@ -39,37 +38,6 @@ public class CreateSudoku : MonoBehaviour
         }
         Manager.UIManagerComponent.PrintResult(newTable.SudokuGrid);
         Manager.CurrentTable = newTable;
-    }
-
-    private bool PopulateGrid(int[,] Sudoku, int row, int col)
-    {
-        if (col >= Sudoku.GetLength(1))
-        {
-            col = 0;
-            row++;
-        }
-        if (row >= Sudoku.GetLength(0))
-        {
-            return true;
-        }
-
-        List<int> randomNum = new List<int>();
-        randomNum = RandomNumbers();
-
-        for (int i = 0; i < randomNum.Count; i++)
-        {
-            int value = randomNum[i];
-            if (Manager.SudokuManagerComponent.ValidatePosition(Sudoku, value, row, col))
-            {
-                Sudoku[row, col] = value;
-                if (PopulateGrid(Sudoku, row, col + 1))
-                {
-                    return true;
-                }
-                Sudoku[row, col] = 0;
-            }
-        }
-        return false;
     }
 
     private List<int> RandomNumbers()

@@ -41,9 +41,9 @@ public class UIManager : MonoBehaviour
         TableSelection.value = 1;
     }
 
-    public void SelectOption()
+    public void SelectOption(int index)
     {
-        Manager.CurrentTable = Manager.SudokuTables[TableSelection.value];
+        Manager.CurrentTable = Manager.SudokuTables[index];
         PrintResult(Manager.CurrentTable.SudokuGrid);
     }
 

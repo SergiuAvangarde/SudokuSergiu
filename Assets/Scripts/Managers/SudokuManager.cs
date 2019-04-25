@@ -41,6 +41,44 @@ public class SudokuManager : MonoBehaviour
         return true;
     }
 
+    public bool PopulateGrid(int[,] Sudoku, int row, int col)
+    {
+        if (col >= Sudoku.GetLength(1))
+        {
+            col = 0;
+            row++;
+        }
+        if (row >= Sudoku.GetLength(0))
+        {
+            return true;
+        }
+        if (Sudoku[row, col] == 0)
+        {
+
+            for (int i = 1; i <= 9; i++)
+            {
+                int value = i;
+                if (ValidatePosition(Sudoku, value, row, col))
+                {
+                    Sudoku[row, col] = value;
+                    if (PopulateGrid(Sudoku, row, col + 1))
+                    {
+                        return true;
+                    }
+                    Sudoku[row, col] = 0;
+                }
+            }
+        }
+        else
+        {
+            if (PopulateGrid(Sudoku, row, col + 1))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int[] ConvertToArray(int[,] grid)
     {
         int[] array = new int[81];
