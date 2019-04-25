@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class SudokuManager : MonoBehaviour
 {
+    /// <summary>
+    /// this funtion checks the rulles of the Sudoku game, the given number can be onl once per line or collumn
+    /// and only once in the respective subgrid
+    /// </summary>
+    /// <param name="the sudoku table"></param>
+    /// <param name="the number you want to validate"></param>
+    /// <param name="the row to wich you want to add the number"></param>
+    /// <param name="the collumn to wich you want to add the number"></param>
+    /// <returns>true if the position is valid</returns>
     public bool ValidatePosition(int[,] currentTable, int number, int row, int col)
     {
         if (currentTable[row,col] != 0)
@@ -41,6 +50,14 @@ public class SudokuManager : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// this functions checks every number from 1 to 9 and puts the corect number in the corect position
+    /// it is using backtraching to revert to a previous selection until it finds the first corect solution
+    /// </summary>
+    /// <param name="the current sudoku table"></param>
+    /// <param name="the row where to start to populate"></param>
+    /// <param name="the collumn where to start to populate"></param>
+    /// <returns>true if the solution was found</returns>
     public bool PopulateGrid(int[,] sudoku, int row, int col)
     {
         if (col >= sudoku.GetLength(1))
@@ -81,6 +98,10 @@ public class SudokuManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// gets 9 random unique numbers and puts them in a list
+    /// </summary>
+    /// <returns>a list of numbers 1-9 in random order</returns>
     private List<int> RandomNumbers()
     {
         List<int> random_container = new List<int>(9);
@@ -97,6 +118,11 @@ public class SudokuManager : MonoBehaviour
         return random_container;
     }
 
+    /// <summary>
+    /// takes the 2D array and converts it in simple array
+    /// </summary>
+    /// <param name="2D Array"></param>
+    /// <returns>simple array</returns>
     public int[] ConvertToArray(int[,] grid)
     {
         int[] array = new int[81];
@@ -109,6 +135,11 @@ public class SudokuManager : MonoBehaviour
         return array;
     }
 
+    /// <summary>
+    /// takes a simple array and converts it in a 2D array of 9x9
+    /// </summary>
+    /// <param name="simple Array"></param>
+    /// <returns>2D array</returns>
     public int[,] ConvertToGrid(int[] array)
     {
         int[,] grid = new int[9,9];

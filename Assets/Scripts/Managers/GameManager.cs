@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 
     public List<SudokuTable> SudokuTables = new List<SudokuTable>();
 
+    /// <summary>
+    /// populate the dropdown with the tables from the list
+    /// </summary>
     public void AddTablesToList()
     {
         for (int i = 0; i < SudokuTables.Count; i++)
@@ -18,12 +21,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// call for function to save the current table to file
+    /// </summary>
     public void SaveTable()
     {
         CurrentTable.SudokuArray = SudokuManagerComponent.ConvertToArray(CurrentTable.SudokuGrid);
         FileManager.SaveToFile(CurrentTable.SudokuArray);
     }
 
+    /// <summary>
+    /// call for function to load all of the tables from file
+    /// </summary>
     public void LoadTable()
     {
         SudokuTables = FileManager.LoadFromFile();

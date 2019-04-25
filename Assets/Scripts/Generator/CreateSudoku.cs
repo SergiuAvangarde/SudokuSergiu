@@ -10,11 +10,12 @@ public class CreateSudoku : SudokuManager
 
     public void Start()
     {
-        RefreshGrid();
-        PopulateGrid(newTable.SudokuGrid, 0, 0);
-        RandomDelete();
+        CreateNewTable();
     }
 
+    /// <summary>
+    /// calculates another random grid of numbers for the sudoku table
+    /// </summary>
     public void CreateNewTable()
     {
         RefreshGrid();
@@ -22,6 +23,9 @@ public class CreateSudoku : SudokuManager
         RandomDelete();
     }
 
+    /// <summary>
+    /// after the table is generated correctly, the program removes numbers in random order until only 17 remains
+    /// </summary>
     private void RandomDelete()
     {
         int count = 81;
@@ -40,6 +44,9 @@ public class CreateSudoku : SudokuManager
         manager.CurrentTable = newTable;
     }
 
+    /// <summary>
+    /// make all of the numbers from the grid 0
+    /// </summary>
     private void RefreshGrid()
     {
         for (int i = 0; i < newTable.SudokuGrid.GetLength(0); i++)

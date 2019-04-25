@@ -13,6 +13,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text[] numbersUI;
 
+    /// <summary>
+    /// print the sudoku table to UI
+    /// if the number is 0, it prints an empty string
+    /// </summary>
+    /// <param name="sudoku table"></param>
     public void PrintResult(int[,] sudoku)
     {
         int k = 0;
@@ -33,6 +38,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// add an option to the dropdown menu
+    /// the number of the table will be the same as the one from the list
+    /// </summary>
+    /// <param name="the index of the table from the list"></param>
     public void AddOption(int index)
     {
         Dropdown.OptionData newTable = new Dropdown.OptionData();
@@ -41,17 +51,27 @@ public class UIManager : MonoBehaviour
         tableSelection.value = 1;
     }
 
+    /// <summary>
+    /// change the table with the one selected from the dropdown
+    /// </summary>
+    /// <param name="index"></param>
     public void SelectOption(int index)
     {
         manager.CurrentTable = manager.SudokuTables[index];
         PrintResult(manager.CurrentTable.SudokuGrid);
     }
 
+    /// <summary>
+    /// call the funtion to delete the file
+    /// </summary>
     public void DeleteFile()
     {
         FileManager.DeleteFile();
     }
 
+    /// <summary>
+    /// switch between scenes
+    /// </summary>
     public void SwitchScene()
     {
         Scene scene = SceneManager.GetActiveScene();

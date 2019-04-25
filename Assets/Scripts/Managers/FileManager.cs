@@ -8,6 +8,10 @@ public class FileManager : MonoBehaviour
 {
     private static readonly string sudokuList = "SudokuList.csv";
 
+    /// <summary>
+    /// save the current sudoku to a file
+    /// </summary>
+    /// <param name="sudoku"></param>
     public static void SaveToFile(int[] sudoku)
     {
         string filePath = Path.Combine(Application.persistentDataPath, sudokuList);
@@ -28,6 +32,10 @@ public class FileManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// load all of the sudoku tables from the file
+    /// </summary>
+    /// <returns>a list of sudoku tables</returns>
     public static List<SudokuTable> LoadFromFile()
     {
         string filePath = Path.Combine(Application.persistentDataPath, sudokuList);
@@ -63,6 +71,9 @@ public class FileManager : MonoBehaviour
         return sudokuTables;
     }
 
+    /// <summary>
+    /// delete the file from path
+    /// </summary>
     public static void DeleteFile()
     {
         string filePath = Path.Combine(Application.persistentDataPath, sudokuList);
