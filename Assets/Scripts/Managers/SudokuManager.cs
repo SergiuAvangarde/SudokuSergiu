@@ -54,10 +54,12 @@ public class SudokuManager : MonoBehaviour
         }
         if (Sudoku[row, col] == 0)
         {
+            List<int> randomNum = new List<int>();
+            randomNum = RandomNumbers();
 
-            for (int i = 1; i <= 9; i++)
+            for (int i = 0; i < randomNum.Count; i++)
             {
-                int value = i;
+                int value = randomNum[i];
                 if (ValidatePosition(Sudoku, value, row, col))
                 {
                     Sudoku[row, col] = value;
@@ -77,6 +79,24 @@ public class SudokuManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private List<int> RandomNumbers()
+    {
+        int counter = 0;
+        List<int> random_container = new List<int>(9);
+        do
+        {
+            int random_number = Random.Range(1, 10);
+            if (!random_container.Contains(random_number))
+            {
+                random_container.Add(random_number);
+                counter++;
+            }
+        }
+        while (random_container.Count != 9);
+
+        return random_container;
     }
 
     public int[] ConvertToArray(int[,] grid)
