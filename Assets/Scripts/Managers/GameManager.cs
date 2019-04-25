@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public List<SudokuTable> SudokuTables = new List<SudokuTable>();
 
     /// <summary>
-    /// populate the dropdown with the tables from the list
+    /// Populate the dropdown with the tables from the list
     /// </summary>
     public void AddTablesToList()
     {
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// call for function to save the current table to file
+    /// Call for function to save the current table to file
     /// </summary>
     public void SaveTable()
     {
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// call for function to load all of the tables from file
+    /// Call for function to load all of the tables from file
     /// </summary>
     public void LoadTable()
     {

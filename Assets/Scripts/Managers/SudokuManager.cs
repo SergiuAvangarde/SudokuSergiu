@@ -5,7 +5,7 @@ using UnityEngine;
 public class SudokuManager : MonoBehaviour
 {
     /// <summary>
-    /// this funtion checks the rulles of the Sudoku game, the given number can be onl once per line or collumn
+    /// Check the rulles of the Sudoku game, the given number can be onl once per line or collumn
     /// and only once in the respective subgrid
     /// </summary>
     /// <param name="the sudoku table"></param>
@@ -51,7 +51,7 @@ public class SudokuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// this functions checks every number from 1 to 9 and puts the corect number in the corect position
+    /// Check every number from 1 to 9 and puts the corect number in the corect position
     /// it is using backtraching to revert to a previous selection until it finds the first corect solution
     /// </summary>
     /// <param name="the current sudoku table"></param>
@@ -99,7 +99,7 @@ public class SudokuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// gets 9 random unique numbers and puts them in a list
+    /// Get 9 random unique numbers and put them in a list
     /// </summary>
     /// <returns>a list of numbers 1-9 in random order</returns>
     private List<int> RandomNumbers()
@@ -119,7 +119,7 @@ public class SudokuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// takes the 2D array and converts it in simple array
+    /// Take A 2D array and convert it to a simple array
     /// </summary>
     /// <param name="2D Array"></param>
     /// <returns>simple array</returns>
@@ -136,7 +136,7 @@ public class SudokuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// takes a simple array and converts it in a 2D array of 9x9
+    /// Take a simple array and converts it to a 2D array of 9x9
     /// </summary>
     /// <param name="simple Array"></param>
     /// <returns>2D array</returns>

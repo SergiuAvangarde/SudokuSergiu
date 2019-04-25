@@ -14,7 +14,7 @@ public class CreateSudoku : SudokuManager
     }
 
     /// <summary>
-    /// calculates another random grid of numbers for the sudoku table
+    /// Calculate another random grid of numbers for the sudoku table
     /// </summary>
     public void CreateNewTable()
     {
@@ -24,7 +24,7 @@ public class CreateSudoku : SudokuManager
     }
 
     /// <summary>
-    /// after the table is generated correctly, the program removes numbers in random order until only 17 remains
+    /// After the table is generated correctly, the program removes numbers from random positions until only 17 remains
     /// </summary>
     private void RandomDelete()
     {
@@ -45,7 +45,7 @@ public class CreateSudoku : SudokuManager
     }
 
     /// <summary>
-    /// make all of the numbers from the grid 0
+    /// Make all of the numbers from the grid 0
     /// </summary>
     private void RefreshGrid()
     {

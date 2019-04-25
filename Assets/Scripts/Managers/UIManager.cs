@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     private Text[] numbersUI;
 
     /// <summary>
-    /// print the sudoku table to UI
+    /// Print the sudoku table to UI
     /// if the number is 0, it prints an empty string
     /// </summary>
     /// <param name="sudoku table"></param>
@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// add an option to the dropdown menu
+    /// Add an option to the dropdown menu
     /// the number of the table will be the same as the one from the list
     /// </summary>
     /// <param name="the index of the table from the list"></param>
@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// change the table with the one selected from the dropdown
+    /// Change the table with the one selected from the dropdown
     /// </summary>
     /// <param name="index"></param>
     public void SelectOption(int index)
@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// call the funtion to delete the file
+    /// Call the funtion to delete the file
     /// </summary>
     public void DeleteFile()
     {
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// switch between scenes
+    /// Switch between scenes
     /// </summary>
     public void SwitchScene()
     {

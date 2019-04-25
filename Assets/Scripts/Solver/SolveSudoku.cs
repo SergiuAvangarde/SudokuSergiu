@@ -8,7 +8,7 @@ public class SolveSudoku : SudokuManager
     private GameManager manager;
 
     /// <summary>
-    /// Loads the tables from the file and populates the dropdown
+    /// Load the tables from the file and populates the dropdown
     /// </summary>
     private void Start()
     {
@@ -17,7 +17,7 @@ public class SolveSudoku : SudokuManager
     }
 
     /// <summary>
-    /// solve the selected sudoku table from the dropdown
+    /// Solve the selected sudoku table from the dropdown
     /// </summary>
     public void SolveSelected()
     {
