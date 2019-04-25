@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class FileManager : MonoBehaviour
 {
-    private static readonly string SudokuList = "SudokuList.csv";
+    private static readonly string sudokuList = "SudokuList.csv";
 
     public static void SaveToFile(int[] sudoku)
     {
-        string filePath = Path.Combine(Application.persistentDataPath, SudokuList);
+        string filePath = Path.Combine(Application.persistentDataPath, sudokuList);
         string contents = null;
         if (File.Exists(filePath))
         {
@@ -30,7 +30,7 @@ public class FileManager : MonoBehaviour
 
     public static List<SudokuTable> LoadFromFile()
     {
-        string filePath = Path.Combine(Application.persistentDataPath, SudokuList);
+        string filePath = Path.Combine(Application.persistentDataPath, sudokuList);
         int[] sudokuArray;
         List<SudokuTable> sudokuTables = new List<SudokuTable>();
         if (File.Exists(filePath))
@@ -65,7 +65,7 @@ public class FileManager : MonoBehaviour
 
     public static void DeleteFile()
     {
-        string filePath = Path.Combine(Application.persistentDataPath, SudokuList);
+        string filePath = Path.Combine(Application.persistentDataPath, sudokuList);
 
         if (File.Exists(filePath))
         {

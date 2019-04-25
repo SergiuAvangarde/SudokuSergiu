@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private Dropdown TableSelection;
+    private Dropdown tableSelection;
     [SerializeField]
-    private GameManager Manager;
+    private GameManager manager;
     [SerializeField]
-    private Text[] NumbersUI;
+    private Text[] numbersUI;
 
     public void PrintResult(int[,] sudoku)
     {
@@ -22,11 +22,11 @@ public class UIManager : MonoBehaviour
             {
                 if (sudoku[i, j] == 0)
                 {
-                    NumbersUI[k].text = "";
+                    numbersUI[k].text = "";
                 }
                 else
                 {
-                    NumbersUI[k].text = sudoku[i, j].ToString();
+                    numbersUI[k].text = sudoku[i, j].ToString();
                 }
                 k++;
             }
@@ -37,14 +37,14 @@ public class UIManager : MonoBehaviour
     {
         Dropdown.OptionData newTable = new Dropdown.OptionData();
         newTable.text = "Sudoku nr." + index.ToString();
-        TableSelection.options.Add(newTable);
-        TableSelection.value = 1;
+        tableSelection.options.Add(newTable);
+        tableSelection.value = 1;
     }
 
     public void SelectOption(int index)
     {
-        Manager.CurrentTable = Manager.SudokuTables[index];
-        PrintResult(Manager.CurrentTable.SudokuGrid);
+        manager.CurrentTable = manager.SudokuTables[index];
+        PrintResult(manager.CurrentTable.SudokuGrid);
     }
 
     public void DeleteFile()

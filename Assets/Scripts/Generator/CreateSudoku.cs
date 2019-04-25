@@ -6,7 +6,7 @@ public class CreateSudoku : SudokuManager
 {
     private SudokuTable newTable = new SudokuTable();
     [SerializeField]
-    private GameManager Manager;
+    private GameManager manager;
 
     public void Start()
     {
@@ -36,26 +36,8 @@ public class CreateSudoku : SudokuManager
                 count--;
             }
         }
-        Manager.UIManagerComponent.PrintResult(newTable.SudokuGrid);
-        Manager.CurrentTable = newTable;
-    }
-
-    private List<int> RandomNumbers()
-    {
-        int counter = 0;
-        List<int> random_container = new List<int>(9);
-        do
-        {
-            int random_number = Random.Range(1, 10);
-            if (!random_container.Contains(random_number))
-            {
-                random_container.Add(random_number);
-                counter++;
-            }
-        }
-        while (random_container.Count != 9);
-
-        return random_container;
+        manager.UIManagerComponent.PrintResult(newTable.SudokuGrid);
+        manager.CurrentTable = newTable;
     }
 
     private void RefreshGrid()
@@ -67,5 +49,6 @@ public class CreateSudoku : SudokuManager
                 newTable.SudokuGrid[i, j] = 0;
             }
         }
+        manager.CurrentTable = newTable;
     }
 }

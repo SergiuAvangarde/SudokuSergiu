@@ -5,17 +5,17 @@ using UnityEngine;
 public class SolveSudoku : SudokuManager
 {
     [SerializeField]
-    private GameManager Manager;
+    private GameManager manager;
 
     private void Start()
     {
-        Manager.LoadTable();
-        Manager.AddTablesToList();
+        manager.LoadTable();
+        manager.AddTablesToList();
     }
 
     public void SolveSelected()
     {
-        PopulateGrid(Manager.CurrentTable.SudokuGrid, 0, 0);
-        Manager.UIManagerComponent.PrintResult(Manager.CurrentTable.SudokuGrid);
+        PopulateGrid(manager.CurrentTable.SudokuGrid, 0, 0);
+        manager.UIManagerComponent.PrintResult(manager.CurrentTable.SudokuGrid);
     }
 }

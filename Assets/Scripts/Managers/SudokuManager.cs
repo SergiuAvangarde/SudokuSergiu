@@ -41,18 +41,18 @@ public class SudokuManager : MonoBehaviour
         return true;
     }
 
-    public bool PopulateGrid(int[,] Sudoku, int row, int col)
+    public bool PopulateGrid(int[,] sudoku, int row, int col)
     {
-        if (col >= Sudoku.GetLength(1))
+        if (col >= sudoku.GetLength(1))
         {
             col = 0;
             row++;
         }
-        if (row >= Sudoku.GetLength(0))
+        if (row >= sudoku.GetLength(0))
         {
             return true;
         }
-        if (Sudoku[row, col] == 0)
+        if (sudoku[row, col] == 0)
         {
             List<int> randomNum = new List<int>();
             randomNum = RandomNumbers();
@@ -60,20 +60,20 @@ public class SudokuManager : MonoBehaviour
             for (int i = 0; i < randomNum.Count; i++)
             {
                 int value = randomNum[i];
-                if (ValidatePosition(Sudoku, value, row, col))
+                if (ValidatePosition(sudoku, value, row, col))
                 {
-                    Sudoku[row, col] = value;
-                    if (PopulateGrid(Sudoku, row, col + 1))
+                    sudoku[row, col] = value;
+                    if (PopulateGrid(sudoku, row, col + 1))
                     {
                         return true;
                     }
-                    Sudoku[row, col] = 0;
+                    sudoku[row, col] = 0;
                 }
             }
         }
         else
         {
-            if (PopulateGrid(Sudoku, row, col + 1))
+            if (PopulateGrid(sudoku, row, col + 1))
             {
                 return true;
             }
@@ -83,7 +83,6 @@ public class SudokuManager : MonoBehaviour
 
     private List<int> RandomNumbers()
     {
-        int counter = 0;
         List<int> random_container = new List<int>(9);
         do
         {
@@ -91,7 +90,6 @@ public class SudokuManager : MonoBehaviour
             if (!random_container.Contains(random_number))
             {
                 random_container.Add(random_number);
-                counter++;
             }
         }
         while (random_container.Count != 9);

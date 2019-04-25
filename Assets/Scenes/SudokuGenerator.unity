@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94b8a0c3e8cd474a8547d5f06a0715e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 1727955536}
+  manager: {fileID: 1727955536}
 --- !u!4 &375707812
 Transform:
   m_ObjectHideFlags: 0
@@ -4373,9 +4373,9 @@ RectTransform:
   m_Children:
   - {fileID: 1854289649}
   - {fileID: 739971712}
-  - {fileID: 1687717328}
   - {fileID: 2116811041}
   - {fileID: 1846929252}
+  - {fileID: 1687717328}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5748,7 +5748,7 @@ RectTransform:
   - {fileID: 1051651815}
   - {fileID: 2064451214}
   m_Father: {fileID: 1271998430}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6117,7 +6117,7 @@ RectTransform:
   m_Children:
   - {fileID: 366091548}
   m_Father: {fileID: 1271998430}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6925,9 +6925,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f79a9752118704bb3b09b4deab01e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TableSelection: {fileID: 0}
-  Manager: {fileID: 1727955536}
-  NumbersUI:
+  tableSelection: {fileID: 0}
+  manager: {fileID: 1727955536}
+  numbersUI:
   - {fileID: 8577800351002054021}
   - {fileID: 2253893809688000253}
   - {fileID: 1511490687951285942}
@@ -7371,7 +7371,7 @@ RectTransform:
   m_Children:
   - {fileID: 1960216562}
   m_Father: {fileID: 1271998430}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
